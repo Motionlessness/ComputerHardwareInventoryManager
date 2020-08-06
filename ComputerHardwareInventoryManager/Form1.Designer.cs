@@ -43,6 +43,7 @@
             this.addbutt.TabIndex = 0;
             this.addbutt.Text = "Add Item";
             this.addbutt.UseVisualStyleBackColor = true;
+            this.addbutt.Click += new System.EventHandler(this.addbutt_Click);
             // 
             // deletebutt
             // 
@@ -91,6 +92,7 @@
             this.Controls.Add(this.addbutt);
             this.Name = "Form1";
             this.Text = "Computer Hardware DataBase";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
