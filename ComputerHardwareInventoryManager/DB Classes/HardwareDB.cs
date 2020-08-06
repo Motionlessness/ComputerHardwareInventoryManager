@@ -19,6 +19,7 @@ namespace ComputerHardwareInventoryManager.DB_Classes
         {
             HardwareContext Hcon = new HardwareContext();
             Hcon.HardwareProducts.Add(HP);
+            Hcon.SaveChanges();
         }
 
         public static void Update(HardwareProduct old, HardwareProduct HP)
@@ -26,13 +27,14 @@ namespace ComputerHardwareInventoryManager.DB_Classes
             HardwareContext Hcon = new HardwareContext();
             Hcon.HardwareProducts.Remove(old);
             Hcon.HardwareProducts.Add(HP);
-
+            Hcon.SaveChanges();
         }
 
         public static void Delete(HardwareProduct HP)
         {
             HardwareContext Hcon = new HardwareContext();
             Hcon.HardwareProducts.Remove(HP);
+            Hcon.SaveChanges();
         }
     }
 }
