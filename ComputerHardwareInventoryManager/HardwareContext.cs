@@ -5,9 +5,9 @@ namespace ComputerHardwareInventoryManager
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class Model1 : DbContext
+    public partial class HardwareContext : DbContext
     {
-        public Model1()
+        public HardwareContext()
             : base("name=Model1")
         {
         }
