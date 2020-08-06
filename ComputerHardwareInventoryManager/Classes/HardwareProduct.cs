@@ -25,5 +25,10 @@ namespace ComputerHardwareInventoryManager
         [Required]
         [StringLength(150)]
         public string Description { get; set; }
+
+        public override string ToString()
+        {
+            return Manufacturer + " " + Title;
+        }
     }
 }
