@@ -24,7 +24,7 @@ namespace ComputerHardwareInventoryManager
             {
                 List<HardwareProduct> prod = HardwareDB.GetHardwareProducts();
 
-                checkedListBox1.Items.Add(prod[i]);
+                checkedListBox1.Items.Add($"{prod[i].Manufacturer} {prod[i].Title} {prod[i].Description} Price: ${(double)prod[i].Price}");
             }
             
         }
@@ -36,6 +36,17 @@ namespace ComputerHardwareInventoryManager
             form.Show();        //shows AddForm form to user
             Hide();             // hides current form
 
+        }
+
+        public void Form1_Load()
+        {
+            checkedListBox1.Items.Clear();
+            for (int i = 0; i < HardwareDB.GetHardwareProducts().Count(); i++)
+            {
+                List<HardwareProduct> prod = HardwareDB.GetHardwareProducts();
+
+                checkedListBox1.Items.Add(prod[i]);
+            };
         }
     }
 }

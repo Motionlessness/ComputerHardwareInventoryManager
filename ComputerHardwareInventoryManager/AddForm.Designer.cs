@@ -126,8 +126,10 @@
             // 
             // AddForm
             // 
+            this.AcceptButton = this.subButt;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.exitButt;
             this.ClientSize = new System.Drawing.Size(299, 281);
             this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.descriptionTxt);
