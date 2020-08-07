@@ -17,10 +17,13 @@ namespace ComputerHardwareInventoryManager.DB_Classes
 
         public static void Insert(HardwareProduct HP)
         {
-            HardwareContext Hcon = new HardwareContext();
-            Hcon.HardwareProducts.Add(HP);
-            Hcon.SaveChanges();
+            if (IsValid(HP)) {
+                HardwareContext Hcon = new HardwareContext();
+                Hcon.HardwareProducts.Add(HP);
+                Hcon.SaveChanges();
+            }
         }
+            
 
         public static void Update(HardwareProduct old, HardwareProduct HP)
         {
@@ -35,6 +38,27 @@ namespace ComputerHardwareInventoryManager.DB_Classes
             HardwareContext Hcon = new HardwareContext();
             Hcon.HardwareProducts.Remove(HP);
             Hcon.SaveChanges();
+        }
+
+        public static Boolean IsValid(HardwareProduct HP)
+        {
+            if (HP.Title == "" ||
+                HP.Manufacturer == "" ||
+                HP.Description == "")
+            {
+                return false;
+            }
+            else if(HP.Price == 0)
+            {
+                Console.WriteLine("Are you sure this product is 0 dollars? (y/n)");
+                var answer = Convert.ToString(Console.ReadKey());
+                if (answer.ToLower() == "y")
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+            else { return true; }
         }
     }
 }

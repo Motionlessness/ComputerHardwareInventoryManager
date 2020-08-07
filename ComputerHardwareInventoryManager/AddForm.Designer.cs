@@ -34,10 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.manufacturerTxt = new System.Windows.Forms.TextBox();
+            this.titleTxt = new System.Windows.Forms.TextBox();
+            this.descriptionTxt = new System.Windows.Forms.TextBox();
+            this.priceTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // subButt
@@ -48,6 +48,7 @@
             this.subButt.TabIndex = 0;
             this.subButt.Text = "Submit";
             this.subButt.UseVisualStyleBackColor = true;
+            this.subButt.Click += new System.EventHandler(this.subButt_Click);
             // 
             // exitButt
             // 
@@ -57,6 +58,7 @@
             this.exitButt.TabIndex = 1;
             this.exitButt.Text = "Cancel";
             this.exitButt.UseVisualStyleBackColor = true;
+            this.exitButt.Click += new System.EventHandler(this.exitButt_Click);
             // 
             // label1
             // 
@@ -94,43 +96,43 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "Price";
             // 
-            // textBox1
+            // manufacturerTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(148, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.manufacturerTxt.Location = new System.Drawing.Point(148, 19);
+            this.manufacturerTxt.Name = "manufacturerTxt";
+            this.manufacturerTxt.Size = new System.Drawing.Size(100, 20);
+            this.manufacturerTxt.TabIndex = 7;
             // 
-            // textBox2
+            // titleTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(148, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
+            this.titleTxt.Location = new System.Drawing.Point(148, 58);
+            this.titleTxt.Name = "titleTxt";
+            this.titleTxt.Size = new System.Drawing.Size(100, 20);
+            this.titleTxt.TabIndex = 8;
             // 
-            // textBox3
+            // descriptionTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(148, 105);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
+            this.descriptionTxt.Location = new System.Drawing.Point(148, 105);
+            this.descriptionTxt.Name = "descriptionTxt";
+            this.descriptionTxt.Size = new System.Drawing.Size(100, 20);
+            this.descriptionTxt.TabIndex = 9;
             // 
-            // textBox4
+            // priceTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(148, 148);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 10;
+            this.priceTxt.Location = new System.Drawing.Point(148, 148);
+            this.priceTxt.Name = "priceTxt";
+            this.priceTxt.Size = new System.Drawing.Size(100, 20);
+            this.priceTxt.TabIndex = 10;
             // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 281);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.priceTxt);
+            this.Controls.Add(this.descriptionTxt);
+            this.Controls.Add(this.titleTxt);
+            this.Controls.Add(this.manufacturerTxt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -153,9 +155,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox manufacturerTxt;
+        private System.Windows.Forms.TextBox titleTxt;
+        private System.Windows.Forms.TextBox descriptionTxt;
+        private System.Windows.Forms.TextBox priceTxt;
     }
 }

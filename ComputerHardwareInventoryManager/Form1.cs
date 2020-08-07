@@ -31,7 +31,10 @@ namespace ComputerHardwareInventoryManager
 
         private void addbutt_Click(object sender, EventArgs e)
         {
-          
+            AddForm form = new AddForm(); //makes a new add form page
+            form.Tag = this;    //tags this form to the AddForm page
+            form.Show();        //shows AddForm form to user
+            Hide();             // hides current form
         }
     }
 }
