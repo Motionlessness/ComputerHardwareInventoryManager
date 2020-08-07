@@ -18,7 +18,7 @@ namespace ComputerHardwareInventoryManager
         {
             modelBuilder.Entity<HardwareProduct>()
                 .Property(e => e.Price)
-                .HasPrecision(10, 4);
+                .HasPrecision(10, 2);
 
             modelBuilder.Entity<HardwareProduct>()
                 .Property(e => e.Manufacturer)

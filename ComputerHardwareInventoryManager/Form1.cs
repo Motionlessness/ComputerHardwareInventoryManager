@@ -17,7 +17,7 @@ namespace ComputerHardwareInventoryManager
         {
             InitializeComponent();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < HardwareDB.GetHardwareProducts().Count(); i++)
@@ -31,7 +31,11 @@ namespace ComputerHardwareInventoryManager
 
         private void addbutt_Click(object sender, EventArgs e)
         {
-          
+            AddForm form = new AddForm(); //makes a new add form page
+            form.Tag = this;    //tags this form to the AddForm page
+            form.Show();        //shows AddForm form to user
+            Hide();             // hides current form
+
         }
     }
 }
