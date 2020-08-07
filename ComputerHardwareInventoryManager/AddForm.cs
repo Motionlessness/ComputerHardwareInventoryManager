@@ -41,6 +41,7 @@ namespace ComputerHardwareInventoryManager
 
             HardwareDB.Insert(p);
             var form1 = (Form1)Tag; // set form1 to the Form1 class we tagged earlier
+            form1.Form1_Load(); //refresh products list
             form1.Show();
             Close();
         }

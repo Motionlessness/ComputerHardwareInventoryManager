@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ComputerHardwareInventoryManager.DB_Classes
 {
@@ -48,11 +49,11 @@ namespace ComputerHardwareInventoryManager.DB_Classes
             {
                 return false;
             }
-            else if(HP.Price <= 0)
+            else if((double)HP.Price <= 0.00)
             {
-                Console.WriteLine("Are you sure this product is 0 dollars? (y/n)");
-                var answer = Convert.ToString(Console.ReadKey());
-                if (answer.ToLower() == "y")
+                DialogResult drPrice = MessageBox.Show("Are you sure this product is 0 dollars? (y/n)",
+                                                        "REALLY?",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                if (drPrice == DialogResult.Yes)
                 {
                     return true;
                 }
