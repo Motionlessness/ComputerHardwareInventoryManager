@@ -48,7 +48,7 @@ namespace ComputerHardwareInventoryManager.DB_Classes
             {
                 return false;
             }
-            else if(HP.Price == 0)
+            else if(HP.Price <= 0)
             {
                 Console.WriteLine("Are you sure this product is 0 dollars? (y/n)");
                 var answer = Convert.ToString(Console.ReadKey());

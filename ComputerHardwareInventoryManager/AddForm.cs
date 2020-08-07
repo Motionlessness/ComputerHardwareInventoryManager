@@ -36,7 +36,7 @@ namespace ComputerHardwareInventoryManager
             p.Manufacturer = Convert.ToString(manufacturerTxt.Text);
             p.Title = Convert.ToString(titleTxt.Text);
             p.Description = Convert.ToString(descriptionTxt.Text);
-            if (priceTxt.Text == "") { p.Price = 0; }
+            if (priceTxt.Text == "") { p.Price = -1; }
             else { p.Price = Convert.ToDecimal(priceTxt.Text); }
 
             HardwareDB.Insert(p);
