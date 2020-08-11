@@ -53,6 +53,7 @@
             this.deletebutt.TabIndex = 1;
             this.deletebutt.Text = "Delete Item";
             this.deletebutt.UseVisualStyleBackColor = true;
+            this.deletebutt.Click += new System.EventHandler(this.deletebutt_Click);
             // 
             // editbutt
             // 
@@ -62,6 +63,7 @@
             this.editbutt.TabIndex = 2;
             this.editbutt.Text = "Edit Item";
             this.editbutt.UseVisualStyleBackColor = true;
+            this.editbutt.Click += new System.EventHandler(this.editbutt_Click);
             // 
             // checkedListBox1
             // 
