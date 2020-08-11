@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,11 +28,10 @@ namespace ComputerHardwareInventoryManager.DB_Classes
         }
             
 
-        public static void Update(HardwareProduct old, HardwareProduct HP)
+        public static void Update(HardwareProduct HP)
         {
             HardwareContext Hcon = new HardwareContext();
-            Hcon.HardwareProducts.Remove(old);
-            Hcon.HardwareProducts.Add(HP);
+            Hcon.HardwareProducts.AddOrUpdate(HP);
             Hcon.SaveChanges();
         }
 
@@ -38,6 +39,14 @@ namespace ComputerHardwareInventoryManager.DB_Classes
         {
             HardwareContext Hcon = new HardwareContext();
             Hcon.HardwareProducts.Remove(HP);
+            Hcon.SaveChanges();
+        }
+
+        public static void Delete(int id)
+        {
+            HardwareContext Hcon = new HardwareContext();
+            HardwareProduct deleteProd = Hcon.HardwareProducts.Where(p => p.ProductId == id).Single();
+            Hcon.HardwareProducts.Remove(deleteProd);
             Hcon.SaveChanges();
         }
 
