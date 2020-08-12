@@ -52,6 +52,7 @@
             // 
             // exitButt
             // 
+            this.exitButt.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.exitButt.Location = new System.Drawing.Point(212, 246);
             this.exitButt.Name = "exitButt";
             this.exitButt.Size = new System.Drawing.Size(75, 23);
@@ -131,6 +132,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.exitButt;
             this.ClientSize = new System.Drawing.Size(299, 281);
+            this.ControlBox = false;
             this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.descriptionTxt);
             this.Controls.Add(this.titleTxt);
@@ -141,7 +143,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.exitButt);
             this.Controls.Add(this.subButt);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddForm";
+            this.ShowInTaskbar = false;
             this.Text = "Hardware Product";
             this.Load += new System.EventHandler(this.AddForm_Load);
             this.ResumeLayout(false);
