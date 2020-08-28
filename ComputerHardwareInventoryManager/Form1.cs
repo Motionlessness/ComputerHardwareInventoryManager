@@ -55,7 +55,7 @@ namespace ComputerHardwareInventoryManager
 
         private void editbutt_Click(object sender, EventArgs e)
         {
-            List<HardwareProduct> editProd = new List<HardwareProduct>();
+            
 
             for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
             {
@@ -71,16 +71,14 @@ namespace ComputerHardwareInventoryManager
 
         private void deletebutt_Click(object sender, EventArgs e)
         {
-            List<HardwareProduct> deleteProd = new List<HardwareProduct>();
+           
 
             for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
             {
-                deleteProd.Add((HardwareProduct)checkedListBox1.CheckedItems[i]);
+                HardwareProduct h = (HardwareProduct)checkedListBox1.CheckedItems[i];
+                HardwareDB.Delete(h.ProductId);
             }
-            for (int i = 0; i < deleteProd.Count; i++)
-            {
-                HardwareDB.Delete(deleteProd[i].ProductId);
-            }
+            
             Form1_Load();
         }
     }
