@@ -17,6 +17,7 @@ namespace ComputerHardwareInventoryManager.DB_Classes
         {
             Hcon = new HardwareContext();
         }
+
         public static List<HardwareProduct> GetHardwareProducts()
         {
             return Hcon.HardwareProducts.ToList();
@@ -52,15 +53,11 @@ namespace ComputerHardwareInventoryManager.DB_Classes
             {
                 return false;
             }
-            else if((double)HP.Price <= 0.00)
+            else if((double)HP.Price <= 0)
             {
                 DialogResult drPrice = MessageBox.Show("Are you sure this product is 0 dollars? (y/n)",
                                                         "REALLY?",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
-                if (drPrice == DialogResult.Yes)
-                {
-                    return true;
-                }
-                else { return false; }
+                return drPrice == DialogResult.Yes;
             }
             else { return true; }
         }
