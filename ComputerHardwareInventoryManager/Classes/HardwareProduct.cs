@@ -28,7 +28,7 @@ namespace ComputerHardwareInventoryManager
 
         public override string ToString()
         {
-            return Manufacturer + "   ||   " + Title + "   ||   " + Description + "   ||   $" + Convert.ToDouble(Price);
+            return Manufacturer + "   ||   " + Title + "   ||   " + Description + "   ||   " + Price.ToString("C");
         }
     }
 }
