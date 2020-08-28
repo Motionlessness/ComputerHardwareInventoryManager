@@ -14,7 +14,7 @@ namespace ComputerHardwareInventoryManager
 {
     public partial class AddForm : Form
     {
-        Boolean editForm = false;
+        bool editForm = false;
         HardwareProduct editProd = new HardwareProduct();
 
         public AddForm()
@@ -27,17 +27,11 @@ namespace ComputerHardwareInventoryManager
            
             descriptionTxt.Text = HP.Description;
             manufacturerTxt.Text = HP.Manufacturer;
-            priceTxt.Text = HP.Price.ToString("C2");
+            priceTxt.Text = HP.Price.ToString("F2");
             titleTxt.Text = HP.Title;
             editProd.ProductId = HP.ProductId;
             
             editForm = true;
-        }
-
-
-        private void AddForm_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void exitButt_Click(object sender, EventArgs e)
@@ -48,13 +42,23 @@ namespace ComputerHardwareInventoryManager
         }
 
         private void subButt_Click(object sender, EventArgs e)
-        {   
-            HardwareProduct p = new HardwareProduct();
-            p.Manufacturer = Convert.ToString(manufacturerTxt.Text);
-            p.Title = Convert.ToString(titleTxt.Text);
-            p.Description = Convert.ToString(descriptionTxt.Text);
-            if (priceTxt.Text == "") { p.Price = -1; }
-            else { p.Price = Convert.ToDecimal(priceTxt.Text); }
+        {
+            HardwareProduct p = new HardwareProduct
+            {
+                Manufacturer = manufacturerTxt.Text,
+                Title = titleTxt.Text,
+                Description = descriptionTxt.Text
+            };
+
+            if (priceTxt.Text == "") 
+            { 
+                p.Price = -1; 
+            }
+            else 
+            {
+                p.Price = Convert.ToDecimal(priceTxt.Text.Replace("$","")); 
+            }
+
             if (!editForm) 
             { 
                 HardwareDB.Insert(p);

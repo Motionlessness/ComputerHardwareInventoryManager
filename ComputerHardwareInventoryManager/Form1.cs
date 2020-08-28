@@ -20,20 +20,22 @@ namespace ComputerHardwareInventoryManager
         }
         
         private void Form1_Load(object sender, EventArgs e)
-        {
-            for (int i = 0; i < HardwareDB.GetHardwareProducts().Count(); i++)
+        {   
+            List<HardwareProduct> prod = HardwareDB.GetHardwareProducts();
+            for (int i = 0; i < prod.Count(); i++)
             {
-                List<HardwareProduct> prod = HardwareDB.GetHardwareProducts();
+                
                 checkedListBox1.Items.Add(prod[i]);
-                //checkedListBox1.Items.Add($"{prod[i].Manufacturer} {prod[i].Title} {prod[i].Description} Price: ${(double)prod[i].Price}");
             }
             
         }
 
         private void addbutt_Click(object sender, EventArgs e)
         {
-            AddForm addForm = new AddForm(); //makes a new add form page
-            addForm.Tag = this;    //tags this form to the AddForm page
+            AddForm addForm = new AddForm //makes a new add form page
+            {
+                Tag = this    //tags this form to the AddForm page
+            };
             addForm.Show();        //shows AddForm form to user
             Hide();             // hides current form
 
@@ -42,23 +44,25 @@ namespace ComputerHardwareInventoryManager
         public void Form1_Load()
         {
             checkedListBox1.Items.Clear();
-            for (int i = 0; i < HardwareDB.GetHardwareProducts().Count(); i++)
-            {
-                List<HardwareProduct> prod = HardwareDB.GetHardwareProducts();
 
+            List<HardwareProduct> prod = HardwareDB.GetHardwareProducts();
+
+            for (int i = 0; i < prod.Count(); i++)
+            {
                 checkedListBox1.Items.Add(prod[i]);
             }
         }
 
         private void editbutt_Click(object sender, EventArgs e)
         {
-            List<HardwareProduct> editProd = new List<HardwareProduct>();
+            
 
             for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
             {
-                editProd.Add((HardwareProduct)checkedListBox1.CheckedItems[i]);
-                AddForm editForm = new AddForm(editProd[i]);
-                editForm.Tag = this;
+                AddForm editForm = new AddForm((HardwareProduct)checkedListBox1.CheckedItems[i])
+                {
+                    Tag = this
+                };
                 editForm.Show();
                 Hide();
             }
@@ -67,16 +71,14 @@ namespace ComputerHardwareInventoryManager
 
         private void deletebutt_Click(object sender, EventArgs e)
         {
-            List<HardwareProduct> deleteProd = new List<HardwareProduct>();
+           
 
             for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
             {
-                deleteProd.Add((HardwareProduct)checkedListBox1.CheckedItems[i]);
+                HardwareProduct h = (HardwareProduct)checkedListBox1.CheckedItems[i];
+                HardwareDB.Delete(h.ProductId);
             }
-            for (int i = 0; i < deleteProd.Count; i++)
-            {
-                HardwareDB.Delete(deleteProd[i].ProductId);
-            }
+            
             Form1_Load();
         }
     }
