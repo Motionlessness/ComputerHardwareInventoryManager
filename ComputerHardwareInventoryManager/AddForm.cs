@@ -34,12 +34,6 @@ namespace ComputerHardwareInventoryManager
             editForm = true;
         }
 
-
-        private void AddForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void exitButt_Click(object sender, EventArgs e)
         {
             var form1 = (Form1)Tag; // set form1 to the Form1 class we tagged earlier
@@ -48,13 +42,23 @@ namespace ComputerHardwareInventoryManager
         }
 
         private void subButt_Click(object sender, EventArgs e)
-        {   
-            HardwareProduct p = new HardwareProduct();
-            p.Manufacturer = Convert.ToString(manufacturerTxt.Text);
-            p.Title = Convert.ToString(titleTxt.Text);
-            p.Description = Convert.ToString(descriptionTxt.Text);
-            if (priceTxt.Text == "") { p.Price = -1; }
-            else { p.Price = Convert.ToDecimal(priceTxt.Text.Replace("$","")); }
+        {
+            HardwareProduct p = new HardwareProduct
+            {
+                Manufacturer = manufacturerTxt.Text,
+                Title = titleTxt.Text,
+                Description = descriptionTxt.Text
+            };
+
+            if (priceTxt.Text == "") 
+            { 
+                p.Price = -1; 
+            }
+            else 
+            {
+                p.Price = Convert.ToDecimal(priceTxt.Text.Replace("$","")); 
+            }
+
             if (!editForm) 
             { 
                 HardwareDB.Insert(p);
