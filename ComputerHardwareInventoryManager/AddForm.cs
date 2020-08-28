@@ -14,7 +14,7 @@ namespace ComputerHardwareInventoryManager
 {
     public partial class AddForm : Form
     {
-        Boolean editForm = false;
+        bool editForm = false;
         HardwareProduct editProd = new HardwareProduct();
 
         public AddForm()
