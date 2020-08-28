@@ -54,7 +54,7 @@ namespace ComputerHardwareInventoryManager
             p.Title = Convert.ToString(titleTxt.Text);
             p.Description = Convert.ToString(descriptionTxt.Text);
             if (priceTxt.Text == "") { p.Price = -1; }
-            else { p.Price = Convert.ToDecimal(priceTxt.Text); }
+            else { p.Price = Convert.ToDecimal(priceTxt.Text.Replace("$","")); }
             if (!editForm) 
             { 
                 HardwareDB.Insert(p);
