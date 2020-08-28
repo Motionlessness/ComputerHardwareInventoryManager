@@ -42,10 +42,11 @@ namespace ComputerHardwareInventoryManager
         public void Form1_Load()
         {
             checkedListBox1.Items.Clear();
-            for (int i = 0; i < HardwareDB.GetHardwareProducts().Count(); i++)
-            {
-                List<HardwareProduct> prod = HardwareDB.GetHardwareProducts();
 
+            List<HardwareProduct> prod = HardwareDB.GetHardwareProducts();
+
+            for (int i = 0; i < prod.Count(); i++)
+            {
                 checkedListBox1.Items.Add(prod[i]);
             }
         }
@@ -56,8 +57,7 @@ namespace ComputerHardwareInventoryManager
 
             for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
             {
-                editProd.Add((HardwareProduct)checkedListBox1.CheckedItems[i]);
-                AddForm editForm = new AddForm(editProd[i]);
+                AddForm editForm = new AddForm((HardwareProduct)checkedListBox1.CheckedItems[i]);
                 editForm.Tag = this;
                 editForm.Show();
                 Hide();
