@@ -11,17 +11,20 @@ namespace ComputerHardwareInventoryManager.DB_Classes
 {
     static class HardwareDB
     {
+        static readonly HardwareContext Hcon;
+
+        static HardwareDB()
+        {
+            Hcon = new HardwareContext();
+        }
         public static List<HardwareProduct> GetHardwareProducts()
         {
-            HardwareContext Hcon = new HardwareContext();
-
             return Hcon.HardwareProducts.ToList();
         }
 
         public static void Insert(HardwareProduct HP)
         {
             if (IsValid(HP)) {
-                HardwareContext Hcon = new HardwareContext();
                 Hcon.HardwareProducts.Add(HP);
                 Hcon.SaveChanges();
             }
@@ -30,27 +33,18 @@ namespace ComputerHardwareInventoryManager.DB_Classes
 
         public static void Update(HardwareProduct HP)
         {
-            HardwareContext Hcon = new HardwareContext();
             Hcon.HardwareProducts.AddOrUpdate(HP);
-            Hcon.SaveChanges();
-        }
-
-        public static void Delete(HardwareProduct HP)
-        {
-            HardwareContext Hcon = new HardwareContext();
-            Hcon.HardwareProducts.Remove(HP);
             Hcon.SaveChanges();
         }
 
         public static void Delete(int id)
         {
-            HardwareContext Hcon = new HardwareContext();
             HardwareProduct deleteProd = Hcon.HardwareProducts.Where(p => p.ProductId == id).Single();
             Hcon.HardwareProducts.Remove(deleteProd);
             Hcon.SaveChanges();
         }
 
-        public static Boolean IsValid(HardwareProduct HP)
+        public static bool IsValid(HardwareProduct HP)
         {
             if (HP.Title == "" ||
                 HP.Manufacturer == "" ||
