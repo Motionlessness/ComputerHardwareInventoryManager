@@ -27,7 +27,7 @@ namespace ComputerHardwareInventoryManager
            
             descriptionTxt.Text = HP.Description;
             manufacturerTxt.Text = HP.Manufacturer;
-            priceTxt.Text = HP.Price.ToString("C2");
+            priceTxt.Text = HP.Price.ToString("F2");
             titleTxt.Text = HP.Title;
             editProd.ProductId = HP.ProductId;
             
