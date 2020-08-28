@@ -148,7 +148,6 @@
             this.Name = "AddForm";
             this.ShowInTaskbar = false;
             this.Text = "Hardware Product";
-            this.Load += new System.EventHandler(this.AddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
